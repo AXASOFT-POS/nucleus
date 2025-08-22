@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Topup request",
+    "description": "Data poziadavky Topup transakcie",
+    "type": "object",
+     "additionalProperties": false,
+     "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "TopupData": {"$ref": "#/$defs/TopupData"}
+    },
+    "$defs": {
+        "TopupData": {
+            "type": "object",
+            "additionalProperties": false,
+           "properties": {
+                "Product": {
+                    "type": "string",
+                    "$comment": "Identifikator Topup produktu z POS"
+                },
+                "Data1": {
+                    "type": "string",
+                    "$comment": "Zaklane data produktu"
+                },
+                "Data2": {
+                    "type": "string",
+                    "$comment": "Doplnujuce data produktu"
+                },
+                "EAN": {
+                    "type": "string",
+                    "$comment": "EAN kod produktu",
+                    "pattern": "^[0-9]{13}$"
+                }
+            },
+            "required": [
+                "Product",
+                "Data1",
+                "EAN"
+            ]
+        }
+    },
+    "required": [
+        "uuid",
+        "termBaseReqData",
+        "TopupData"
+    ]
+}
