@@ -1,0 +1,93 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Petro request",
+    "description": "Data poziadavky petrol transakcie",
+    "type": "object",
+    "properties": {
+        "uuid": {
+            "type": "string",
+            "$comment": "Jednoznacny identifikator transakcie uuid v7",
+            "maxLength": 36
+        },
+        "track2": {
+            "type": "string",
+            "maxLength": 37,
+            "$comment": "Cele cislo karty"
+        },
+        "pin": {
+            "type": "string",
+            "$comment": "PIN karty"
+        },
+        "posEntryMode": {
+            "type": "string",
+            "$comment": "POS Entry Mode - sposob vykonania trx",
+            "maxLength": 3,
+            "minLength": 3
+        },
+        "retailerId": {
+            "type": "string",
+            "$comment": "Identifikator obchodnika v NUCLEUSe",
+            "minLength": 1,
+            "maxLength": 19
+        },
+        "currencyCode": {
+            "type": "string",
+            "$comment": "Kod meny v ktorej bola transakcia realizovana",
+            "const": "978"
+        },
+        "TermBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/refs/heads/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "PurchaseInfo": {"$ref": "#/$defs/PurchaseInfo"},
+        "PurchaseItems": {"$ref": "#/$defs/PurchaseItems"},
+        "EMVData": {"$ref": "#/$defs/EMVData"}
+    },
+    "$defs": {
+        "PurchaseInfo": {
+            "type": "object",
+            "properties": {
+                "DriverCode": {"type": "string"},
+                "VehicleCode": {"type": "string"},
+                "Odometer": {"type": "string"},
+                "AdditionalInfo": {"type": "string"}
+            }
+        },
+        "PurchaseItems": {
+            "type": "array",
+            "items": {
+                "properties": {
+                    "PurchItem": {
+                        "type": "object",
+                        "properties": {
+                            "Code": {
+                                "type": "integer",
+                                "$comment": "kod tovaru podla POS"
+                            },
+                            "Amount": {
+                                "type": "integer",
+                                "$comment": "Jednotkova cena tovaru v stotinach meny"
+                            },
+                            "volume": {
+                                "type": "integer",
+                                "$comment": "Mnozstvo tovaru v stotinach"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "EMVData": {
+            "type": "object",
+            "properties": {
+                "FieldP": {"type": "string"},
+                "FieldQ": {"type": "string"}
+            }
+        }
+    },
+    "required": [
+        "uuid",
+        "TermBaseData",
+        "track2",
+        "posEntryMode",
+        "TermBaseReqData",
+        "PurchaseItems"
+    ]
+}
