@@ -1,13 +1,14 @@
 {
-    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
     "title": "Petro response",
     "description": "Data odpovede petrol transakcie",
     "type": "object",
-   "additionalProperties": false,
+    "additionalProperties": false,
      "properties": {
         "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "termBaseRespData": 
-        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"}
+        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+         "PetroRespData": {"$ref": "#/$defs/PetroRespData"}
         },
     "$defs": {
          "PetroRespData": {
@@ -18,6 +19,7 @@
                     "type": "string",
                     "minLength": 12,
                     "maxLength": 12,
+                    "pattern": "^[0-9A-Za-z]{12}$"
                     "$comment": "P-37 Reference retrieval number"
                 },
                 "allowedProducts": {
