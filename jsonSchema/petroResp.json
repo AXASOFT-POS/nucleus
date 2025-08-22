@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Petro response",
+    "description": "Data odpovede petrol transakcie",
+    "type": "object",
+    "properties": {
+        "uuid": {
+            "type": "string",
+            "$comment": "Jednoznacny identifikator transakcie uuid v7",
+            "maxLength": 36,
+            "minLength": 36
+        },
+        "termBaseRespData": 
+        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"}
+        },
+    "$defs": {
+         "PetroRespData": {
+            "type": "object",
+            "properties": {
+                "retrRefNumber": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 12,
+                    "$comment": "P-37 Reference retrieval number"
+                },
+                "allowedProducts": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 999,
+                    "$comment": "Dovolene produkty"
+                },
+                "scriptToCard": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 999,
+                    "$comment": "P-55 Script do karty"
+                }
+            }
+        }
+    },
+    "required": [
+        "uuid",
+        "termBaseRespData"
+    ]
+}
