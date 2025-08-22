@@ -84,10 +84,9 @@
     },
     "required": [
         "uuid",
-        "TermBaseData",
         "track2",
         "posEntryMode",
-        "TermBaseReqData",
-        "PurchaseItems"
+        "termBaseReqData",
+        "purchaseItems"
     ]
 }
