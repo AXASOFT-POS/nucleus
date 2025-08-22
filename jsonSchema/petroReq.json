@@ -3,12 +3,15 @@
     "title": "Petro request",
     "description": "Data poziadavky petrol transakcie",
     "type": "object",
+    "additionalProperties": false,
     "properties": {
         "uuid": {
             "type": "string",
             "$comment": "Jednoznacny identifikator transakcie uuid v7",
-            "maxLength": 36
-        },
+      "minLength": 36,
+      "maxLength": 36,
+      "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89ABab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
+       },
         "track2": {
             "type": "string",
             "maxLength": 37,
@@ -35,15 +38,16 @@
             "$comment": "Kod meny v ktorej bola transakcia realizovana",
             "const": "978"
         },
-        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/refs/heads/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
-        "purchaseInfo": {"$ref": "#/$defs/PurchaseInfo"},
-        "purchaseItems": {"$ref": "#/$defs/PurchaseItems"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "purchaseInfo": {"$ref": "#/$defs/purchaseInfo"},
+        "purchaseItems": {"$ref": "#/$defs/purchaseItems"},
         "EMVData": {"$ref": "#/$defs/EMVData"}
     },
     "$defs": {
         "purchaseInfo": {
             "type": "object",
-            "properties": {
+      "additionalProperties": false,
+      "properties": {
                 "DriverCode": {"type": "string"},
                 "VehicleCode": {"type": "string"},
                 "Odometer": {"type": "string"},
@@ -52,30 +56,36 @@
         },
         "purchaseItems": {
             "type": "array",
+            "minItems": 1,
             "items": {
+                "type": "object",
+                "additionalProperties": false,
                 "properties": {
-                    "PurchItem": {
-                        "type": "object",
-                        "properties": {
-                            "Code": {
-                                "type": "integer",
-                                "$comment": "kod tovaru podla POS"
-                            },
-                            "Amount": {
-                                "type": "integer",
-                                "$comment": "Jednotkova cena tovaru v stotinach meny"
-                            },
-                            "volume": {
-                                "type": "integer",
-                                "$comment": "Mnozstvo tovaru v stotinach"
-                            }
-                        }
+                    "Code": {
+                        "type": "integer",
+                        "$comment": "kod tovaru podla POS"
+                    },
+                    "Amount": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "$comment": "Jednotkova cena tovaru v stotinach meny"
+                    },
+                    "volume": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "$comment": "Mnozstvo tovaru v stotinach"
                     }
-                }
+                },
+                "required": [
+                    "Code",
+                    "Amount",
+                    "volume"
+                ]
             }
         },
         "EMVData": {
             "type": "object",
+            "additionalProperties": false,
             "properties": {
                 "FieldP": {"type": "string"},
                 "FieldQ": {"type": "string"}
