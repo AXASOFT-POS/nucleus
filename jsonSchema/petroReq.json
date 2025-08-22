@@ -35,13 +35,13 @@
             "$comment": "Kod meny v ktorej bola transakcia realizovana",
             "const": "978"
         },
-        "TermBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/refs/heads/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
-        "PurchaseInfo": {"$ref": "#/$defs/PurchaseInfo"},
-        "PurchaseItems": {"$ref": "#/$defs/PurchaseItems"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/refs/heads/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "purchaseInfo": {"$ref": "#/$defs/PurchaseInfo"},
+        "purchaseItems": {"$ref": "#/$defs/PurchaseItems"},
         "EMVData": {"$ref": "#/$defs/EMVData"}
     },
     "$defs": {
-        "PurchaseInfo": {
+        "purchaseInfo": {
             "type": "object",
             "properties": {
                 "DriverCode": {"type": "string"},
@@ -50,7 +50,7 @@
                 "AdditionalInfo": {"type": "string"}
             }
         },
-        "PurchaseItems": {
+        "purchaseItems": {
             "type": "array",
             "items": {
                 "properties": {
