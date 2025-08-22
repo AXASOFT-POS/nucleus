@@ -5,13 +5,7 @@
     "type": "object",
    "additionalProperties": false,
      "properties": {
-        "uuid": {
-            "type": "string",
-            "$comment": "Jednoznacny identifikator transakcie uuid v7",
-            "minLength": 36,
-            "maxLength": 36,
-            "pattern": "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-7[0-9a-fA-F]{3}-[89ABab][0-9a-fA-F]{3}-[0-9a-fA-F]{12}$"
-        },
+        "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "termBaseRespData": 
         {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"}
         },
