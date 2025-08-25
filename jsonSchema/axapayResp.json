@@ -8,13 +8,6 @@
         "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "termBaseRespData": 
         {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
-         "axapayRespData": {"$ref": "#/$defs/axapayRespData"}
-        },
-    "$defs": {
-         "axapayRespData": {
-            "type": "object",
-            "additionalProperties": false,
-             "properties": {
                 "fee": {
                     "type": "integer",
                     "$comment": "poplatok za transakciu v centoch"
@@ -33,15 +26,11 @@
                       ],
                     "$comment": "EAN identifikator axapay v pokladni"
                 }
-            },
-    "required": [
-        "fee",
-        "issuer"
-    ]
-        }
-   },
+        },
     "required": [
         "uuid",
-        "termBaseRespData"
+        "termBaseRespData",
+        "fee",
+        "issuer"
     ]
 }
