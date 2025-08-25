@@ -5,7 +5,7 @@
     "type": "object",
      "properties": {
         "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
-        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "termBaseRespData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"},
         "topupRespData": {"$ref": "#/$defs/topupRespData"}
    },
        "$defs": {
@@ -23,5 +23,9 @@
                 }
          }
     }
- }
+ },
+   "required": [
+        "uuid",
+        "termBaseRespData"
+    ]
 }
