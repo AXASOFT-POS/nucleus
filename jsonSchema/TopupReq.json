@@ -7,13 +7,6 @@
      "properties": {
         "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
-        "topupReqData": {"$ref": "#/$defs/topupReqData"}
-    },
-    "$defs": {
-        "topupReqData": {
-            "type": "object",
-            "additionalProperties": false,
-           "properties": {
                 "product": {
                     "type": "string",
                     "$comment": "Identifikator Topup produktu z POS"
@@ -32,16 +25,11 @@
                     "pattern": "^[0-9]{13}$"
                 }
             },
-            "required": [
-                "product",
-                "data1",
-                "ean"
-            ]
-        }
-    },
     "required": [
         "uuid",
         "termBaseReqData",
-        "topupReqData"
+        "product",
+        "data1",
+        "ean"
     ]
 }
