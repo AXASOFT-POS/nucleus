@@ -21,12 +21,6 @@
             "maxLength": 3,
             "minLength": 3
         },
-        "retailerId": {
-            "type": "string",
-            "$comment": "Identifikator obchodnika v NUCLEUSe",
-            "minLength": 1,
-            "maxLength": 19
-        },
         "currencyCode": {
             "type": "string",
             "$comment": "Kod meny v ktorej bola transakcia realizovana",
