@@ -6,13 +6,6 @@
      "properties": {
         "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "termBaseRespData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"},
-        "topupRespData": {"$ref": "#/$defs/topupRespData"}
-   },
-       "$defs": {
-        "topupRespData": {
-            "type": "object",
-            "additionalProperties": false,
-            "properties": {
                 "SerialNumber": {
                     "type": "string",
                     "$comment": "Seriove cislo Topup produktu"
@@ -21,9 +14,7 @@
                     "type": "string",
                     "$comment": "Kod produktu"
                 }
-         }
-    }
- },
+   },
    "required": [
         "uuid",
         "termBaseRespData"
