@@ -8,7 +8,7 @@
         "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "track2": {
             "type": "string",
-            "maxLength": 37,
+            "pattern": "^;[0-9]{1,19}=[0-9]{4}[0-9]{3}[0-9]*\\?$",
             "$comment": "Cele cislo karty"
         },
         "pin": {
