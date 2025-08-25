@@ -1,0 +1,47 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Axapay response",
+    "description": "Data odpovede Axapay transakcie",
+    "type": "object",
+    "additionalProperties": false,
+     "properties": {
+        "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseRespData": 
+        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+         "axapayRespData": {"$ref": "#/$defs/axapayRespData"}
+        },
+    "$defs": {
+         "axapayRespData": {
+            "type": "object",
+            "additionalProperties": false,
+             "properties": {
+                "fee": {
+                    "type": "integer",
+                    "$comment": "poplatok za transakciu v centoch"
+                },
+                "issuer": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 20,
+                    "$comment": "Vydavatel seku"
+                },
+                "ean": {
+                    "type": "string",
+                     "anyOf": [
+                        { "pattern": "^[0-9]{8}$" },
+                        { "pattern": "^[0-9]{13}$" }
+                      ],
+                    "$comment": "EAN identifikator axapay v pokladni"
+                }
+            },
+    "required": [
+        "fee",
+        "issuer"
+    ]
+        }
+   },
+    "required": [
+        "uuid",
+        "termBaseRespData"
+    ]
+}

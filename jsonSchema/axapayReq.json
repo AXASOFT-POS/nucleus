@@ -1,0 +1,21 @@
+{
+    "$schema": "\"http://json-schema.org/draft/2020-12/schema\"",
+    "title": "Axapay request",
+    "description": "Data poziadavky axapay transakciea",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "barCode": {
+            "type": "string",
+             "pattern": "^[0-9]{10,70}$",
+             "$comment": "Ciarovy kod seku"
+        },
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"}
+        },
+      "required": [
+        "uuid",
+        "termBaseReqData",
+        "barCode"
+    ]
+}
