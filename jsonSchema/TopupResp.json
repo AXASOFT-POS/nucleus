@@ -1,0 +1,27 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Topup response",
+    "description": "Data odpovede Topup transakcie",
+    "type": "object",
+     "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "topupRespData": {"$ref": "#/$defs/topupRespData"}
+   },
+       "$defs": {
+        "topupRespData": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+                "SerialNumber": {
+                    "type": "string",
+                    "$comment": "Seriove cislo Topup produktu"
+                },
+                "Code": {
+                    "type": "string",
+                    "$comment": "Kod produktu"
+                }
+         }
+    }
+ }
+}
