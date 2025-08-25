@@ -7,10 +7,10 @@
      "properties": {
         "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
         "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
-        "topupData": {"$ref": "#/$defs/TopupData"}
+        "topupReqData": {"$ref": "#/$defs/topupReqData"}
     },
     "$defs": {
-        "TopupData": {
+        "topupReqData": {
             "type": "object",
             "additionalProperties": false,
            "properties": {
@@ -42,6 +42,6 @@
     "required": [
         "uuid",
         "termBaseReqData",
-        "TopupData"
+        "topupData"
     ]
 }
