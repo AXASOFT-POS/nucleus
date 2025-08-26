@@ -17,8 +17,6 @@
    },
    "required": [
         "uuid",
-        "termBaseRespData",
-        "serialNumber",
-        "code"
+        "termBaseRespData"
     ]
 }
