@@ -1,0 +1,16 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "GiftCard request",
+    "description": "Data poziadavky GiftCard transakcie",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "cardNumber": {
+            "type": "string",
+            "pattern": "^\\d{16}$",
+            "$comment": "Cele cislo karty"
+        }
+    }
+}
