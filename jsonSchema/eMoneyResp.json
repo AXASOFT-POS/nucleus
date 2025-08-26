@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Topup response",
+    "description": "Data odpovede eMoney transakcie",
+    "type": "object",
+     "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseRespData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"},
+                "serialNumber": {
+                    "type": "string",
+                    "$comment": "Seriove cislo eMoney produktu"
+                },
+                "code": {
+                    "type": "string",
+                    "$comment": "Kod produktu"
+                }
+   },
+   "required": [
+        "uuid",
+        "termBaseRespData",
+        "code"
+    ]
+}

@@ -1,0 +1,34 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "eMoney request",
+    "description": "Data poziadavky  transakcie eMoney (PSC Aircash)",
+    "type": "object",
+     "additionalProperties": false,
+     "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+                "product": {
+                    "type": "string",
+                    "$comment": "Identifikator eMoney produktu z POS"
+                },
+                "data1": {
+                    "type": "string",
+                    "$comment": "Zaklane data produktu"
+                },
+                "data2": {
+                    "type": "string",
+                    "$comment": "Doplnujuce data produktu"
+                },
+                "ean": {
+                    "type": "string",
+                    "$comment": "EAN kod produktu",
+                    "pattern": "^[0-9]{13}$"
+                }
+            },
+    "required": [
+        "uuid",
+        "termBaseReqData",
+        "product",
+         "ean"
+    ]
+}
