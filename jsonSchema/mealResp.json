@@ -1,0 +1,32 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Meal  response",
+    "description": "Data odpovede  transakcie stravnou kartou",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseRespData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "balanceDisp": {
+            "type": "integer",
+            "$comment": "Disponibilny zostatok uctu karty po realizovanej transakcii v centoch"
+        },
+        "scriptToCardQ": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 999,
+            "$comment": "Script do karty Q"
+        },
+        "scriptToCardR": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 999,
+            "$comment": "Script do karty R"
+        }
+    },
+    "required": [
+        "uuid",
+        "termBaseRespData",
+        "balanceDisp"
+    ]
+}

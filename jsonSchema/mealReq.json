@@ -1,0 +1,46 @@
+{
+    "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "title": "Meal request",
+    "description": "Data poziadavky  transakcie stravnou kartou",
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "track2": {
+            "type": "string",
+            "pattern": "^;[0-9]{1,19}=[0-9]{4}[0-9]{3}[0-9]*\\?$",
+            "$comment": "Cele cislo karty"
+        },
+        "pin": {
+            "type": "string",
+            "$comment": "PIN karty"
+        },
+        "posEntryMode": {
+            "type": "string",
+            "$comment": "POS Entry Mode - sposob vykonania trx",
+            "maxLength": 3,
+            "minLength": 3
+        },
+        "currencyCode": {
+            "type": "string",
+            "$comment": "Kod meny v ktorej bola transakcia realizovana",
+            "const": "978"
+        },
+        "chipDataO": {
+            "type": "string",
+            "$comment": "Cipove udaje prenasane v poli O"
+        },
+        "chipDataP": {
+            "type": "string",
+            "$comment": "Cipove udaje prenasane v poli P"
+        },
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"}
+    },
+    "required": [
+        "uuid",
+        "track2",
+        "posEntryMode",
+        "chipDataO",
+        "termBaseRespData"
+    ]
+}
