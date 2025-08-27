@@ -58,7 +58,8 @@
           "minLength": 1,
           "maxLength": 16
         },
-        "revReason": {          
+        "revReason": {
+          "type": "integer",
           "$comment": "Dovod reverzalu u  revers trnx",
           "enum": [
             0,
