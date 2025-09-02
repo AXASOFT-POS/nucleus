@@ -6,7 +6,7 @@
     "additionalProperties": false,
     "properties": {
         "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
-        "termBaseRespData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        "termBaseRespData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"},
         "balanceDisp": {
             "type": "integer",
             "$comment": "Disponibilny zostatok uctu karty po realizovanej transakcii v centoch"
