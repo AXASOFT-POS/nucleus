@@ -9,7 +9,7 @@
         "purchaseInfo": {"$ref": "#/$defs/purchaseInfo"},
         "purchaseItems": {"$ref": "#/$defs/purchaseItems"},
        "termBaseRespData": 
-        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"},
          "PetroRespData": {"$ref": "#/$defs/PetroRespData"}
         },
     "$defs": {
