@@ -1,0 +1,85 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Petro response",
+    "description": "Data odpovede petrol transakcie",
+    "type": "object",
+    "additionalProperties": false,
+     "properties": {
+        "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "purchaseInfo": {"$ref": "#/$defs/purchaseInfo"},
+        "purchaseItems": {"$ref": "#/$defs/purchaseItems"},
+       "termBaseRespData": 
+        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+         "PetroRespData": {"$ref": "#/$defs/PetroRespData"}
+        },
+    "$defs": {
+      "purchaseInfo": {
+            "type": "object",
+      "additionalProperties": false,
+      "properties": {
+                "DriverCode": {"type": "string"},
+                "VehicleCode": {"type": "string"},
+                "Odometer": {"type": "string"},
+                "AdditionalInfo": {"type": "string"}
+            }
+        },
+        "purchaseItems": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                    "Code": {
+                        "type": "integer",
+                        "$comment": "kod tovaru podla POS"
+                    },
+                    "Amount": {
+                        "type": "integer",
+                        "minimum": 1,
+                        "$comment": "Jednotkova cena tovaru v stotinach meny"
+                    },
+                    "volume": {
+                        "type": "integer",
+                        "minimum": 0,
+                        "$comment": "Mnozstvo tovaru v stotinach"
+                    }
+                },
+                "required": [
+                    "Code",
+                    "Amount",
+                    "volume"
+                ]
+            }
+        },
+        "PetroRespData": {
+            "type": "object",
+            "additionalProperties": false,
+             "properties": {
+                "retrRefNumber": {
+                    "type": "string",
+                    "minLength": 12,
+                    "maxLength": 12,
+                    "pattern": "^[0-9A-Za-z]{12}$",
+                    "$comment": "P-37 Reference retrieval number"
+                },
+                "allowedProducts": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 999,
+                    "$comment": "Dovolene produkty"
+                },
+                "scriptToCard": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 999,
+                    "$comment": "P-55 Script do karty"
+                }
+            }
+        }
+    },
+    "required": [
+        "uuid",
+        "termBaseRespData"
+    ]
+}
