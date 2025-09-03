@@ -1,0 +1,20 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "eMoney request",
+    "description": "Data poziadavky  transakcie eMoney (PSC Aircash)",
+    "type": "object",
+     "additionalProperties": false,
+     "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+         "purchaseData": {
+        "type": "string",
+        "description": "Hexadecimálna reprezentácia reťazeca obsahujúci dáta nákupu oddelené GS (ASCII 0x1D)",
+        "pattern": "^[A-Fa-f0-9]*$"        
+        }
+      },
+    "required": [
+        "uuid",
+        "termBaseReqData",
+         "purchaseData"
+    ]
+}

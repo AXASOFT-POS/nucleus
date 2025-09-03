@@ -1,0 +1,23 @@
+{
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "title": "Topup request",
+    "description": "Data poziadavky Topup transakcie",
+    "type": "object",
+     "additionalProperties": false,
+     "properties": {
+        "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
+         "purchaseData": {
+        "type": "string",
+        "description": "Hexadecimálna reprezentácia reťazeca obsahujúci dáta nákupu oddelené GS (ASCII 0x1D)",
+        "pattern": "^[A-Fa-f0-9]*$"        
+        }
+        },
+    "required": [
+        "uuid",
+        "termBaseReqData",
+        "product",
+        "data1",
+        "ean"
+    ]
+}
