@@ -6,6 +6,7 @@
      "additionalProperties": false,
      "properties": {
         "uuid": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
+        "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
          "purchaseData": {
         "type": "string",
         "description": "Hexadecimálna reprezentácia reťazeca obsahujúci dáta nákupu oddelené GS (ASCII 0x1D)",
