@@ -49,11 +49,11 @@
                 "type": "object",
                 "additionalProperties": false,
                 "properties": {
-                    "Code": {
+                    "code": {
                         "type": "integer",
                         "$comment": "kod tovaru podla POS"
                     },
-                    "Amount": {
+                    "amount": {
                         "type": "integer",
                         "minimum": 1,
                         "$comment": "Jednotkova cena tovaru v stotinach meny"
@@ -65,8 +65,8 @@
                     }
                 },
                 "required": [
-                    "Code",
-                    "Amount",
+                    "code",
+                    "amount",
                     "volume"
                 ]
             }
