@@ -9,15 +9,15 @@
         "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
                 "product": {
                     "type": "string",
-                    "$comment": "Identifikator Topup produktu z POS"
+                    "$comment": "Identifikator Topup produktu z POS (operator)"
                 },
-                "data1": {
+                "mobNumber": {
                     "type": "string",
-                    "$comment": "Zaklane data produktu"
+                    "$comment": "Dobijane telefonne cislo"
                 },
-                "data2": {
+                "notifyNumber": {
                     "type": "string",
-                    "$comment": "Doplnujuce data produktu"
+                    "$comment": "Telefonne cislo pre notifikaciu"
                 },
                 "ean": {
                     "type": "string",
@@ -29,7 +29,7 @@
         "uuid",
         "termBaseReqData",
         "product",
-        "data1",
+        "mobNumber",
         "ean"
     ]
 }
