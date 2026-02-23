@@ -26,6 +26,13 @@
             "$comment": "Kod meny v ktorej bola transakcia realizovana",
             "const": "978"
         },
+          "respCode": {
+          "type": "string",
+          "$comment": "Navratovy kod transakcie",
+          "maxLength": 3,
+          "minLength": 3
+        },
+
         "termBaseReqData": {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseReqData"},
         "purchaseInfo": {"$ref": "#/$defs/purchaseInfo"},
         "purchaseItems": {"$ref": "#/$defs/purchaseItems"},
@@ -84,6 +91,7 @@
     "required": [
         "uuid",
         "track2",
+        "respCode",
         "posEntryMode",
         "termBaseReqData",
         "purchaseItems"
