@@ -75,6 +75,7 @@
             "type": "object",
             "additionalProperties": false,
             "properties": {
+                "FieldO": {"type": "string"},
                 "FieldP": {"type": "string"},
                 "FieldQ": {"type": "string"}
             }
