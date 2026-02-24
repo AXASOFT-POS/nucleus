@@ -28,6 +28,10 @@
                     "maxLength": 999,
                     "$comment": "Dovolene produkty"
                 },
+                "dispBalance": {
+                    "type": "integer",
+                    "$comment": "Disponibilny zostatok v centoch"
+                },
                 "scriptToCard": {
                     "type": "string",
                     "minLength": 1,
