@@ -24,7 +24,11 @@
                     "$comment": "EAN kod produktu",
                     "pattern": "^[0-9]{13}$"
                 }
-            },
+                 "externalId": {
+                    "type": "number",
+                    "$comment": "Jedinecny idetnifikator dobitia pre operatora",
+                }
+           },
     "required": [
         "uuid",
         "termBaseReqData",
