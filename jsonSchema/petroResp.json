@@ -38,6 +38,23 @@
                     "maxLength": 999,
                     "$comment": "P-55 Script do karty"
                 }
+                "hidenPrice": {
+                     "type": "string",
+                     "enum": ["N", "Y"],
+                     "$comment": "Indikator skrytej ceny (Y/N)"
+                } 
+               "amountRef": {
+                     "type": "integer",
+                     "$comment": "Referncna Ciastka transakcie v centoch"
+               }
+               "amountRef": {
+                     "type": "integer",
+                     "$comment": "Referncna Ciastka transakcie v centoch"
+               }
+               "amountDisc": {
+                     "type": "integer",
+                     "$comment": "Diskontna Ciastka transakcie v centoch"
+               } 
             }
         }
     },
