@@ -47,14 +47,16 @@
                      "type": "integer",
                      "$comment": "Referncna Ciastka transakcie v centoch"
                }
-               "amountRef": {
-                     "type": "integer",
-                     "$comment": "Referncna Ciastka transakcie v centoch"
-               }
                "amountDisc": {
                      "type": "integer",
                      "$comment": "Diskontna Ciastka transakcie v centoch"
                } 
+              "cardType": {
+                     "type": "integer",
+                     "enum": [4, 5, 9],
+                     "$comment": "Typ karty"
+              }
+                 
             }
         }
     },
