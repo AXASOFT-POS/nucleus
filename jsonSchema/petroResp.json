@@ -1,67 +1,93 @@
 {
-    "$schema": "https://json-schema.org/draft/2020-12/schema",
-    "title": "Petro response",
-    "description": "Data odpovede petrol transakcie",
-    "type": "object",
-    "additionalProperties": false,
-     "properties": {
-        "uuid":  {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"},
-        "termBaseRespData": 
-        {"$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"},
-         "PetroRespData": {"$ref": "#/$defs/PetroRespData"}
-        },
-    "$defs": {
-         "PetroRespData": {
-            "type": "object",
-            "additionalProperties": false,
-             "properties": {
-                "retrRefNumber": {
-                    "type": "string",
-                    "minLength": 12,
-                    "maxLength": 12,
-                    "pattern": "^[0-9A-Za-z]{12}$",
-                    "$comment": "P-37 Reference retrieval number"
-                },
-                "allowedProducts": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 999,
-                    "$comment": "Dovolene produkty"
-                },
-                "dispBalance": {
-                    "type": "integer",
-                    "$comment": "Disponibilny zostatok v centoch"
-                },
-                "scriptToCard": {
-                    "type": "string",
-                    "minLength": 1,
-                    "maxLength": 999,
-                    "$comment": "P-55 Script do karty"
-                }
-                "hidenPrice": {
-                     "type": "string",
-                     "enum": ["N", "Y"],
-                     "$comment": "Indikator skrytej ceny (Y/N)"
-                } 
-               "amountRef": {
-                     "type": "integer",
-                     "$comment": "Referncna Ciastka transakcie v centoch"
-               }
-               "amountDisc": {
-                     "type": "integer",
-                     "$comment": "Diskontna Ciastka transakcie v centoch"
-               } 
-              "cardType": {
-                     "type": "integer",
-                     "enum": [4, 5, 9],
-                     "$comment": "Typ karty"
-              }
-                 
-            }
-        }
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Petro response",
+  "description": "Data odpovede petrol transakcie",
+  "type": "object",
+  "additionalProperties": false,
+
+  "properties": {
+    "uuid": {
+      "$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/uuidv7"
     },
-    "required": [
-        "uuid",
-        "termBaseRespData"
-    ]
+    "termBaseRespData": {
+      "$ref": "https://raw.githubusercontent.com/AXASOFT-POS/nucleus/main/jsonSchema/baseSchema.json#/$defs/TerminalBaseRespData"
+    },
+    "PetroRespData": {
+      "$ref": "#/$defs/PetroRespData"
+    }
+  },
+
+  "required": [
+    "uuid",
+    "termBaseRespData"
+  ],
+
+  "$defs": {
+    "PetroRespData": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "properties": {
+        "retrRefNumber": {
+          "type": "string",
+          "minLength": 12,
+          "maxLength": 12,
+          "pattern": "^[0-9A-Za-z]{12}$",
+          "$comment": "P-37 Reference retrieval number"
+        },
+        "allowedProducts": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 999,
+          "$comment": "Dovolene produkty"
+        },
+        "dispBalance": {
+          "type": "integer",
+          "$comment": "Disponibilny zostatok v centoch"
+        },
+        "scriptToCard": {
+          "type": "string",
+          "minLength": 1,
+          "maxLength": 999,
+          "$comment": "P-55 Script do karty"
+        },
+        "PetroPTCrespData": {
+          "$ref": "#/$defs/PetroPTCrespData"
+        }
+      }
+    },
+
+    "PetroPTCrespData": {
+      "type": "object",
+      "additionalProperties": false,
+
+      "properties": {
+        "hidenPrice": {
+          "type": "string",
+          "enum": ["N", "Y"],
+          "$comment": "Indikator skrytej ceny (Y/N)"
+        },
+        "amountRef": {
+          "type": "integer",
+          "$comment": "Referencna ciastka transakcie v centoch"
+        },
+        "amountDisc": {
+          "type": "integer",
+          "$comment": "Diskontna ciastka transakcie v centoch"
+        },
+        "cardType": {
+          "type": "integer",
+          "enum": [4, 5, 9],
+          "$comment": "Typ karty"
+        }
+      },
+
+      "required": [
+        "hidenPrice",
+        "amountRef",
+        "amountDisc",
+        "cardType"
+      ]
+    }
+  }
 }
