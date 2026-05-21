@@ -79,6 +79,10 @@
           "type": "integer",
           "enum": [4, 5, 9],
           "$comment": "Typ karty"
+        },
+         "ATC": {
+          "type": "integer",
+          "$comment": "ATC z emv dat poziadavky"
         }
       },
 
