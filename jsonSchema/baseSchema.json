@@ -116,12 +116,21 @@
         "amount": {
           "type": "integer",
           "$comment": "Ciastka transakcie v centoch"
+        },
+        "amount": {
+          "type": "integer",
+          "$comment": "Ciastka transakcie v centoch"
+        }
+        "responder" {
+          "type": "Character",
+          "$comment": "Identifikator odpovedaca(autorizacna entita, ktora akceptovala transackiu)"
         }
       },
       "required": [
         "approvalCode",
         "respCode",
-        "amount"
+        "amount",
+        "responder"
       ]
     }
   }
