@@ -14,6 +14,11 @@
                     "type": "string",
                     "$comment": "Kod produktu"
                 }
+                    "DatumExp": {
+                    "type": "string",
+                    "format": "date-time",
+                    "$comment": "Datum expiracie produktu vo formáte RFC 3339, napr. 2025-08-22T09:18:01+02:00"
+                }
    },
    "required": [
         "uuid",
